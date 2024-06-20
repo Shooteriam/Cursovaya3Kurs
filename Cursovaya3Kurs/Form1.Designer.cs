@@ -34,7 +34,7 @@
             label2 = new Label();
             Login = new Button();
             button1 = new Button();
-            linkLabel1 = new LinkLabel();
+            label3 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -91,24 +91,24 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // linkLabel1
+            // label3
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(129, 205);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(119, 15);
-            linkLabel1.TabIndex = 6;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Зарегистрироваться";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            label3.AutoSize = true;
+            label3.Cursor = Cursors.Hand;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            label3.Location = new Point(129, 209);
+            label3.Name = "label3";
+            label3.Size = new Size(119, 15);
+            label3.TabIndex = 6;
+            label3.Text = "Зарегистрироваться";
+            label3.Click += label3_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 229);
-            Controls.Add(linkLabel1);
+            ClientSize = new Size(377, 233);
+            Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(Login);
             Controls.Add(label2);
@@ -130,6 +130,6 @@
         private Label label2;
         private Button Login;
         private Button button1;
-        private LinkLabel linkLabel1;
+        private Label label3;
     }
 }

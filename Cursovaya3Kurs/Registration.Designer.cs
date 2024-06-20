@@ -35,17 +35,20 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            linkLabel1 = new LinkLabel();
+            label4 = new Label();
+            checkBox1 = new CheckBox();
+            textBox4 = new TextBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(124, 277);
+            button1.Location = new Point(124, 308);
             button1.Name = "button1";
             button1.Size = new Size(138, 32);
             button1.TabIndex = 0;
             button1.Text = "Зарегистрироваться";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -95,24 +98,46 @@
             label3.TabIndex = 6;
             label3.Text = "Повторите пароль";
             // 
-            // linkLabel1
+            // label4
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(173, 321);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(40, 15);
-            linkLabel1.TabIndex = 7;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Войти";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            label4.AutoSize = true;
+            label4.Cursor = Cursors.Hand;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            label4.Location = new Point(173, 352);
+            label4.Name = "label4";
+            label4.Size = new Size(40, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Войти";
+            label4.Click += label4_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(101, 225);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(121, 19);
+            checkBox1.TabIndex = 8;
+            checkBox1.Text = "Я администратор";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(93, 250);
+            textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "Введите пароль администратора";
+            textBox4.Size = new Size(201, 23);
+            textBox4.TabIndex = 9;
+            textBox4.Visible = false;
             // 
             // Registration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(386, 345);
-            Controls.Add(linkLabel1);
+            ClientSize = new Size(386, 375);
+            Controls.Add(textBox4);
+            Controls.Add(checkBox1);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -124,6 +149,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registration";
             FormClosed += Registration_FormClosed;
+            Load += Registration_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,6 +163,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private LinkLabel linkLabel1;
+        private Label label4;
+        private CheckBox checkBox1;
+        private TextBox textBox4;
     }
 }

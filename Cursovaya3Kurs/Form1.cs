@@ -72,7 +72,7 @@ namespace Cursovaya3Kurs
             textBox2.UseSystemPasswordChar = !textBox2.UseSystemPasswordChar;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
             Registration registration = new Registration();
             registration.Show();
