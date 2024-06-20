@@ -34,6 +34,7 @@
             label2 = new Label();
             Login = new Button();
             button1 = new Button();
+            linkLabel1 = new LinkLabel();
             SuspendLayout();
             // 
             // textBox1
@@ -56,18 +57,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(107, 38);
             label1.Name = "label1";
-            label1.Size = new Size(48, 15);
+            label1.Size = new Size(41, 15);
             label1.TabIndex = 2;
-            label1.Text = "ЛОГИН";
+            label1.Text = "Логин";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(107, 100);
             label2.Name = "label2";
-            label2.Size = new Size(55, 15);
+            label2.Size = new Size(49, 15);
             label2.TabIndex = 3;
-            label2.Text = "ПАРОЛЬ";
+            label2.Text = "Пароль";
             // 
             // Login
             // 
@@ -75,7 +76,7 @@
             Login.Name = "Login";
             Login.Size = new Size(95, 31);
             Login.TabIndex = 4;
-            Login.Text = "ВОЙТИ";
+            Login.Text = "Войти";
             Login.UseVisualStyleBackColor = true;
             Login.Click += Login_Click;
             // 
@@ -90,11 +91,24 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(129, 205);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(119, 15);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Зарегистрироваться";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 213);
+            ClientSize = new Size(377, 229);
+            Controls.Add(linkLabel1);
             Controls.Add(button1);
             Controls.Add(Login);
             Controls.Add(label2);
@@ -116,5 +130,6 @@
         private Label label2;
         private Button Login;
         private Button button1;
+        private LinkLabel linkLabel1;
     }
 }

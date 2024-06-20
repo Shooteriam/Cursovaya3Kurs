@@ -5,6 +5,7 @@ namespace Cursovaya3Kurs
     public partial class Form1 : Form
     {
         private OleDbConnection connection;
+        int n = 0;
 
         public Form1()
         {
@@ -69,6 +70,13 @@ namespace Cursovaya3Kurs
         private void button1_Click(object sender, EventArgs e)
         {
             textBox2.UseSystemPasswordChar = !textBox2.UseSystemPasswordChar;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            this.Hide();
         }
     }
 }
