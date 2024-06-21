@@ -1,8 +1,10 @@
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System.Data.OleDb;
 
 namespace Cursovaya3Kurs
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         private OleDbConnection connection;
         int n = 0;
@@ -10,6 +12,11 @@ namespace Cursovaya3Kurs
         public Form1()
         {
             InitializeComponent();
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
             string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\Users.accdb;";
             connection = new OleDbConnection(connectionString);
         }
@@ -23,7 +30,7 @@ namespace Cursovaya3Kurs
             {
                 if (role == "admin")
                 {
-                    AdminMenu adminMenu = new AdminMenu(userId);
+                    AdminMenu adminMenu = new AdminMenu(userId, username);
                     adminMenu.Show();
                 }
                 else
@@ -35,7 +42,7 @@ namespace Cursovaya3Kurs
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль");
+                MessageBox.Show("Неверный логин или пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,6 +84,11 @@ namespace Cursovaya3Kurs
             Registration registration = new Registration();
             registration.Show();
             this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

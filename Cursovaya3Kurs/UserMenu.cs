@@ -1,6 +1,8 @@
-﻿namespace Cursovaya3Kurs
+﻿using MaterialSkin.Controls;
+
+namespace Cursovaya3Kurs
 {
-    public partial class UserMenu : Form
+    public partial class UserMenu : MaterialForm
     {
         private int userId;
         private string username;
@@ -22,7 +24,7 @@
         private void button1_Click(object sender, EventArgs e) // теория
         {
             n++;
-            Theory theory = new Theory(false, userId);
+            Theory theory = new Theory(false, userId, username);
             theory.Show();
             this.Close();
         }
@@ -30,7 +32,7 @@
         private void button2_Click(object sender, EventArgs e) // пройти тесты
         {
             n++;
-            SelectTopic selectTopic = new SelectTopic(userId);
+            SelectTopic selectTopic = new SelectTopic(userId, username);
             selectTopic.Show();
             this.Close();
         }
@@ -48,6 +50,14 @@
             n++;
             UserStatistic userStatistic = new UserStatistic(userId, username);
             userStatistic.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            n++;
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Close();
         }
     }

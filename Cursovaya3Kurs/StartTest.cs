@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Cursovaya3Kurs
 {
-    public partial class StartTest : Form
+    public partial class StartTest : MaterialForm
     {
         private List<Question> _questions;
         private int _currentQuestionIndex = 0;
@@ -12,16 +13,18 @@ namespace Cursovaya3Kurs
         private int _correctAnswersCount = 0;
         int n = 0;
         private int userId;
+        private string username;
         private UserStatistics _userStatistics;
 
         private TimeSpan _timeRemaining = TimeSpan.FromMinutes(5); // 5 minutes countdown
         private DateTime _startTime;
         private bool _timeExpired = false;
 
-        public StartTest(List<Question> questions, int userId)
+        public StartTest(List<Question> questions, int userId, string username)
         {
             InitializeComponent();
             this.userId = userId;
+            this.username = username;
             _questions = questions;
             _radioButtons = new List<RadioButton> { radioButton1, radioButton2, radioButton3, radioButton4 };
             _userStatistics = UserStatistics.Load($"../../../Статистика/user_{userId}.txt") ?? new UserStatistics(userId);
@@ -59,11 +62,14 @@ namespace Cursovaya3Kurs
         {
             timer1.Stop();
 
+            var testDuration = DateTime.Now - _startTime;
+
             if (!_timeExpired)
             {
                 _userStatistics.TotalTestsTaken++;
                 _userStatistics.TotalCorrectAnswers += _correctAnswersCount;
                 _userStatistics.TotalQuestionsAnswered += _questions.Count;
+                _userStatistics.TotalTimeSpent += testDuration;
                 _userStatistics.Save($"../../../Статистика/user_{userId}.txt");
             }
             else
@@ -71,7 +77,7 @@ namespace Cursovaya3Kurs
                 MessageBox.Show("Время вышло!");
             }
 
-            MessageBox.Show($"Вы прошли все вопросы! Количество правильных ответов: {_correctAnswersCount} из {_questions.Count}.\nВремя прохождения: {(DateTime.Now - _startTime).Minutes} минут {(DateTime.Now - _startTime).Seconds} секунд.");
+            MessageBox.Show($"Вы прошли все вопросы! Количество правильных ответов: {_correctAnswersCount} из {_questions.Count}.\nВремя прохождения: {testDuration.Minutes} минут {testDuration.Seconds} секунд.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             n++;
             this.Close();
@@ -92,7 +98,7 @@ namespace Cursovaya3Kurs
 
             if (selectedOptionIndex == -1)
             {
-                MessageBox.Show("Пожалуйста, выберите вариант ответа.");
+                MessageBox.Show("Пожалуйста, выберите вариант ответа.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -109,7 +115,7 @@ namespace Cursovaya3Kurs
 
         private void ReturnToSelectTopic()
         {
-            var selectTopicForm = new SelectTopic(userId);
+            var selectTopicForm = new SelectTopic(userId, username);
             selectTopicForm.Show();
         }
 
@@ -133,6 +139,7 @@ namespace Cursovaya3Kurs
 
             if (_timeRemaining.TotalSeconds <= 0)
             {
+                _timeExpired = true;
                 EndTest();
             }
         }

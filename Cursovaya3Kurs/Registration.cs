@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Cursovaya3Kurs
 {
-    public partial class Registration : Form
+    public partial class Registration : MaterialForm
     {
         private OleDbConnection connection;
         private const string adminPassword = "admin"; // Пароль для регистрации администратора
@@ -47,15 +48,20 @@ namespace Cursovaya3Kurs
             string confirmPassword = textBox3.Text;
             bool isAdmin = checkBox1.Checked;
 
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (password != confirmPassword)
+            //{
+            //    MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (password != confirmPassword)
+            {
+                MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -113,6 +119,12 @@ namespace Cursovaya3Kurs
         {
             bool isChecked = checkBox1.Checked;
             textBox4.Visible = isChecked;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.UseSystemPasswordChar = !textBox2.UseSystemPasswordChar;
+            textBox3.UseSystemPasswordChar = !textBox3.UseSystemPasswordChar;
         }
     }
 }

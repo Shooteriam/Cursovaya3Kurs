@@ -1,10 +1,15 @@
-﻿namespace Cursovaya3Kurs
+﻿using MaterialSkin.Controls;
+using System;
+using System.Windows.Forms;
+
+namespace Cursovaya3Kurs
 {
-    public partial class UserStatistic : Form
+    public partial class UserStatistic : MaterialForm
     {
         private int userId;
         private string username;
         private UserStatistics userStatistics;
+        int n = 0;
 
         public UserStatistic(int userId, string username)
         {
@@ -20,58 +25,43 @@
             label2.Text = $"Количество пройденных тестов: {userStatistics.TotalTestsTaken}";
             label3.Text = $"Общее количество правильных ответов: {userStatistics.TotalCorrectAnswers}";
             label4.Text = $"Общее количество отвеченных вопросов: {userStatistics.TotalQuestionsAnswered}";
+            label5.Text = $"Общее время за тестами: {userStatistics.TotalTimeSpent.Hours} часов {userStatistics.TotalTimeSpent.Minutes} минут {userStatistics.TotalTimeSpent.Seconds} секунд"; // Новая метка для общего времени
         }
 
         private void UserStatistic_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[0].Show();
-        }
-    }
-
-    public class UserStatistics
-    {
-        public int UserId { get; set; }
-        public int TotalTestsTaken { get; set; }
-        public int TotalCorrectAnswers { get; set; }
-        public int TotalQuestionsAnswered { get; set; }
-
-        public UserStatistics(int userId)
-        {
-            UserId = userId;
-            TotalTestsTaken = 0;
-            TotalCorrectAnswers = 0;
-            TotalQuestionsAnswered = 0;
-        }
-
-        public void Save(string filePath)
-        {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            if (n == 0)
             {
-                writer.WriteLine(UserId);
-                writer.WriteLine(TotalTestsTaken);
-                writer.WriteLine(TotalCorrectAnswers);
-                writer.WriteLine(TotalQuestionsAnswered);
+                Application.OpenForms[0].Show();
             }
         }
 
-        public static UserStatistics Load(string filePath)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(filePath)) return null;
+            n++;
+            UserMenu userMenu = new UserMenu(userId, username);
+            userMenu.Show();
+            this.Close();
+        }
 
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                int userId = int.Parse(reader.ReadLine());
-                int totalTestsTaken = int.Parse(reader.ReadLine());
-                int totalCorrectAnswers = int.Parse(reader.ReadLine());
-                int totalQuestionsAnswered = int.Parse(reader.ReadLine());
+        private void button1_Click(object sender, EventArgs e)
+        {
+            userStatistics.TotalTestsTaken = 0;
+            userStatistics.TotalCorrectAnswers = 0;
+            userStatistics.TotalQuestionsAnswered = 0;
+            userStatistics.TotalTimeSpent = TimeSpan.Zero;
 
-                return new UserStatistics(userId)
-                {
-                    TotalTestsTaken = totalTestsTaken,
-                    TotalCorrectAnswers = totalCorrectAnswers,
-                    TotalQuestionsAnswered = totalQuestionsAnswered
-                };
-            }
+            // Сохранение сброшенной статистики в файл
+            userStatistics.Save($"../../../Статистика/user_{userId}.txt");
+
+            // Обновление меток
+            label2.Text = $"Количество пройденных тестов: {userStatistics.TotalTestsTaken}";
+            label3.Text = $"Общее количество правильных ответов: {userStatistics.TotalCorrectAnswers}";
+            label4.Text = $"Общее количество отвеченных вопросов: {userStatistics.TotalQuestionsAnswered}";
+            label5.Text = $"Общее время за тестами: {userStatistics.TotalTimeSpent.Hours} часов {userStatistics.TotalTimeSpent.Minutes} минут {userStatistics.TotalTimeSpent.Seconds} секунд"; // Обновление метки общего времени
+
+            // Уведомление пользователя о сбросе статистики
+            MessageBox.Show("Статистика была сброшена.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

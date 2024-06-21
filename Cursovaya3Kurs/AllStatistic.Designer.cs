@@ -28,54 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllStatistic));
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.FromArgb(64, 64, 64);
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dataGridView1.Location = new Point(12, 12);
+            dataGridView1.Location = new Point(12, 77);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(776, 426);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(776, 247);
             dataGridView1.TabIndex = 0;
             // 
             // Column1
             // 
             Column1.HeaderText = "ID пользователя";
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "Всего пройдено тестов";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "Всего отвечено вопросов";
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             // 
             // Column4
             // 
             Column4.HeaderText = "Всего правильных ответов";
             Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            // 
+            // button8
+            // 
+            button8.BackgroundImage = Properties.Resources.free_icon_back_3114883;
+            button8.BackgroundImageLayout = ImageLayout.Zoom;
+            button8.Location = new Point(12, 330);
+            button8.Name = "button8";
+            button8.Size = new Size(30, 30);
+            button8.TabIndex = 12;
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // AllStatistic
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 366);
+            Controls.Add(button8);
             Controls.Add(dataGridView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "AllStatistic";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AllStatistic";
+            Text = "Статистика всех пользователей";
             FormClosed += AllStatistic_FormClosed;
             Load += AllStatistic_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -89,5 +113,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private Button button8;
     }
 }

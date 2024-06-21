@@ -63,9 +63,39 @@ namespace Cursovaya3Kurs.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap curriculum {
+            get {
+                object obj = ResourceManager.GetObject("curriculum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_back_3114883 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-back-3114883", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_icon_eye_158746 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-eye-158746", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_log_out_4662171 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-log-out-4662171", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

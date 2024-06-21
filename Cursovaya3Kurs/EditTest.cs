@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using MaterialSkin.Controls;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,19 +13,25 @@ using System.Windows.Forms;
 
 namespace Cursovaya3Kurs
 {
-    public partial class EditTest : Form
+    public partial class EditTest : MaterialForm
     {
         private int userId;
+        private string username;
+        int n = 0;
 
-        public EditTest(int userId)
+        public EditTest(int userId, string username)
         {
             InitializeComponent();
             this.userId = userId;
+            this.username = username;
         }
 
         private void EditTest_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[0].Show();
+            if (n == 0)
+            {
+                Application.OpenForms[0].Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +93,14 @@ namespace Cursovaya3Kurs
                     MessageBox.Show($"Файл {filePath} не найден.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            n++;
+            AdminMenu adminMenu = new AdminMenu(userId, username);
+            adminMenu.Show();
+            this.Close();
         }
     }
 }

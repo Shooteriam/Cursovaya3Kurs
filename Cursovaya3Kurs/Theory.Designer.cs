@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Theory));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             textBox1 = new TextBox();
@@ -43,6 +44,7 @@
             textBox6 = new TextBox();
             button1 = new Button();
             label1 = new Label();
+            button2 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -60,7 +62,7 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
-            tabControl1.Location = new Point(12, 12);
+            tabControl1.Location = new Point(12, 72);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1136, 645);
@@ -188,9 +190,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 659);
+            button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
+            button1.Location = new Point(505, 723);
             button1.Name = "button1";
-            button1.Size = new Size(141, 23);
+            button1.Size = new Size(201, 30);
             button1.TabIndex = 1;
             button1.Text = "Сохранить изменения";
             button1.UseVisualStyleBackColor = true;
@@ -199,23 +202,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1116, 667);
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1120, 36);
             label1.Name = "label1";
             label1.Size = new Size(28, 15);
             label1.TabIndex = 2;
             label1.Text = "id: -";
             // 
+            // button2
+            // 
+            button2.BackgroundImage = Properties.Resources.free_icon_back_3114883;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Location = new Point(12, 723);
+            button2.Name = "button2";
+            button2.Size = new Size(30, 30);
+            button2.TabIndex = 3;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Theory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1160, 689);
+            ClientSize = new Size(1160, 760);
+            Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Theory";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Theory";
+            Text = "Теория для ознакомления";
             FormClosed += Theory_FormClosed;
             Load += Theory_Load;
             tabControl1.ResumeLayout(false);
@@ -252,5 +271,6 @@
         private TextBox textBox6;
         private Button button1;
         private Label label1;
+        private Button button2;
     }
 }

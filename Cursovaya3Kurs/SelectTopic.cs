@@ -1,19 +1,23 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Cursovaya3Kurs
 {
-    public partial class SelectTopic : Form
+    public partial class SelectTopic : MaterialForm
     {
         int n = 0;
         private int userId;
+        private string username;
 
-        public SelectTopic(int userId)
+        public SelectTopic(int userId, string username)
         {
             InitializeComponent();
             this.userId = userId;
+            this.username = username;
         }
 
         private void SelectTopic_FormClosed(object sender, FormClosedEventArgs e)
@@ -85,7 +89,7 @@ namespace Cursovaya3Kurs
         private void OpenTestForm(string filePath)
         {
             var questions = LoadTest(filePath);
-            var testForm = new StartTest(questions, userId);
+            var testForm = new StartTest(questions, userId, username);
             testForm.Show();
             this.Close();
         }
@@ -94,7 +98,7 @@ namespace Cursovaya3Kurs
         {
             var allQuestions = LoadAllTests();
             var randomQuestions = GetRandomQuestions(allQuestions, 15);
-            var testForm = new StartTest(randomQuestions, userId);
+            var testForm = new StartTest(randomQuestions, userId, username);
             testForm.Show();
             this.Close();
         }
@@ -144,6 +148,14 @@ namespace Cursovaya3Kurs
         private void SelectTopic_Load(object sender, EventArgs e)
         {
             label1.Text = $"id: {userId.ToString()}";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            n++;
+            UserMenu userMenu = new UserMenu(userId, username);
+            userMenu.Show();
+            this.Close();
         }
     }
 

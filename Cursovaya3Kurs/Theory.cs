@@ -1,20 +1,28 @@
-﻿namespace Cursovaya3Kurs
+﻿using MaterialSkin.Controls;
+
+namespace Cursovaya3Kurs
 {
-    public partial class Theory : Form
+    public partial class Theory : MaterialForm
     {
         public bool IsAdmin { get; set; } // Свойство для проверки, является ли пользователь администратором
         private int userId;
+        private string username;
+        int n = 0;
 
-        public Theory(bool isAdmin, int userId)
+        public Theory(bool isAdmin, int userId, string username)
         {
             InitializeComponent();
             IsAdmin = isAdmin;
             this.userId = userId;
+            this.username = username;
         }
 
         private void Theory_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[0].Show();
+            if (n == 0)
+            {
+                Application.OpenForms[0].Show();
+            }
         }
 
         private void Theory_Load(object sender, EventArgs e)
@@ -79,6 +87,24 @@
             }
 
             MessageBox.Show("Изменения сохранены.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (IsAdmin)
+            {
+                n++;
+                AdminMenu adminMenu = new AdminMenu(userId, username);
+                adminMenu.Show();
+                this.Close();
+            }
+            else
+            {
+                n++;
+                UserMenu userMenu = new UserMenu(userId, username);
+                userMenu.Show();
+                this.Close();
+            }
         }
     }
 }

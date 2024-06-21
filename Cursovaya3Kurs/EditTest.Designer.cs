@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditTest));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             textBox1 = new TextBox();
@@ -45,6 +46,7 @@
             button1 = new Button();
             toolTip1 = new ToolTip(components);
             label1 = new Label();
+            button8 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -62,7 +64,7 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
-            tabControl1.Location = new Point(12, 12);
+            tabControl1.Location = new Point(12, 74);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1238, 460);
@@ -81,7 +83,9 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(-4, 0);
+            textBox1.BackColor = SystemColors.Window;
+            textBox1.ForeColor = SystemColors.WindowText;
+            textBox1.Location = new Point(0, 0);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ScrollBars = ScrollBars.Vertical;
@@ -186,9 +190,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(558, 478);
+            button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
+            button1.Location = new Point(526, 540);
             button1.Name = "button1";
-            button1.Size = new Size(146, 23);
+            button1.Size = new Size(210, 31);
             button1.TabIndex = 1;
             button1.Text = "Сохранить изменения";
             button1.UseVisualStyleBackColor = true;
@@ -201,25 +206,41 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 477);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1233, 34);
             label1.Name = "label1";
             label1.Size = new Size(17, 21);
             label1.TabIndex = 2;
             label1.Text = "?";
             toolTip1.SetToolTip(label1, "Заполняйте поля в формате: ВОПРОС?|ВАРИАНТ 1|*ВАРИАНТ 2|ВАРИАНТ 3|ВАРИАНТ 4\r\n* - пометка правильного ответа");
             // 
+            // button8
+            // 
+            button8.BackgroundImage = Properties.Resources.free_icon_back_3114883;
+            button8.BackgroundImageLayout = ImageLayout.Zoom;
+            button8.Location = new Point(16, 541);
+            button8.Name = "button8";
+            button8.Size = new Size(30, 30);
+            button8.TabIndex = 11;
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // EditTest
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 509);
+            ClientSize = new Size(1262, 579);
+            Controls.Add(button8);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "EditTest";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EditTest";
+            Text = "Редактировать тесты";
             FormClosed += EditTest_FormClosed;
             Load += EditTest_Load;
             tabControl1.ResumeLayout(false);
@@ -257,5 +278,6 @@
         private TextBox textBox6;
         private ToolTip toolTip1;
         private Label label1;
+        private Button button8;
     }
 }

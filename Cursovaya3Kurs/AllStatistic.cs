@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,18 @@ using System.Windows.Forms;
 
 namespace Cursovaya3Kurs
 {
-    public partial class AllStatistic : Form
+    public partial class AllStatistic : MaterialForm
     {
-        public AllStatistic()
+        int n = 0;
+        private int userId;
+        private string username;
+
+        public AllStatistic(int userId, string username)
         {
             InitializeComponent();
             LoadStatistics();
+            this.userId = userId;
+            this.username = username;
         }
 
         private void LoadStatistics()
@@ -50,12 +57,23 @@ namespace Cursovaya3Kurs
 
         private void AllStatistic_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.ClearSelection();
         }
 
         private void AllStatistic_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[0].Show();
+            if (n == 0)
+            {
+                Application.OpenForms[0].Show();
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            n++;
+            AdminMenu adminMenu = new AdminMenu(userId, username);
+            adminMenu.Show();
+            this.Close();
         }
     }
 }
