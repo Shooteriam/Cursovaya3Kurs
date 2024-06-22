@@ -90,7 +90,7 @@
             // 
             button2.BackgroundImage = Properties.Resources.free_icon_back_3114883;
             button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(12, 286);
+            button2.Location = new Point(12, 298);
             button2.Name = "button2";
             button2.Size = new Size(30, 30);
             button2.TabIndex = 4;
@@ -100,7 +100,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe Print", 10F, FontStyle.Bold);
-            button1.Location = new Point(136, 286);
+            button1.Location = new Point(136, 297);
             button1.Name = "button1";
             button1.Size = new Size(208, 30);
             button1.TabIndex = 5;
@@ -125,7 +125,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(481, 328);
+            ClientSize = new Size(481, 339);
             Controls.Add(label5);
             Controls.Add(button1);
             Controls.Add(button2);

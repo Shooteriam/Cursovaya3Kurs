@@ -58,6 +58,7 @@
             // 
             // tabControl1
             // 
+            tabControl1.Alignment = TabAlignment.Bottom;
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
@@ -73,7 +74,7 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(textBox1);
-            tabPage1.Location = new Point(4, 24);
+            tabPage1.Location = new Point(4, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(1230, 432);
@@ -95,7 +96,7 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(textBox2);
-            tabPage2.Location = new Point(4, 24);
+            tabPage2.Location = new Point(4, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1230, 432);
@@ -115,7 +116,7 @@
             // tabPage3
             // 
             tabPage3.Controls.Add(textBox3);
-            tabPage3.Location = new Point(4, 24);
+            tabPage3.Location = new Point(4, 4);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1230, 432);
             tabPage3.TabIndex = 2;
@@ -134,7 +135,7 @@
             // tabPage4
             // 
             tabPage4.Controls.Add(textBox4);
-            tabPage4.Location = new Point(4, 24);
+            tabPage4.Location = new Point(4, 4);
             tabPage4.Name = "tabPage4";
             tabPage4.Size = new Size(1230, 432);
             tabPage4.TabIndex = 3;
@@ -153,7 +154,7 @@
             // tabPage5
             // 
             tabPage5.Controls.Add(textBox5);
-            tabPage5.Location = new Point(4, 24);
+            tabPage5.Location = new Point(4, 4);
             tabPage5.Name = "tabPage5";
             tabPage5.Size = new Size(1230, 432);
             tabPage5.TabIndex = 4;
@@ -172,7 +173,7 @@
             // tabPage6
             // 
             tabPage6.Controls.Add(textBox6);
-            tabPage6.Location = new Point(4, 24);
+            tabPage6.Location = new Point(4, 4);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1230, 432);
             tabPage6.TabIndex = 5;

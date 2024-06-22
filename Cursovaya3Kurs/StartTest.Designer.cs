@@ -179,7 +179,7 @@
             MaximizeBox = false;
             Name = "StartTest";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "StartTest";
+            Text = "Пройдите тест";
             FormClosed += StartTest_FormClosed;
             Load += StartTest_Load;
             ResumeLayout(false);

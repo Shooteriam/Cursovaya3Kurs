@@ -54,7 +54,7 @@
             button1.Name = "button1";
             button1.Size = new Size(187, 34);
             button1.TabIndex = 1;
-            button1.Text = "Теория";
+            button1.Text = "Изучить теорию";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
