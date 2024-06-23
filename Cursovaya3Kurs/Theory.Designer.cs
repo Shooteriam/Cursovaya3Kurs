@@ -236,7 +236,7 @@
             MaximizeBox = false;
             Name = "Theory";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Теория для ознакомления";
+            Text = "Теория";
             FormClosed += Theory_FormClosed;
             Load += Theory_Load;
             tabControl1.ResumeLayout(false);

@@ -57,11 +57,11 @@
             // button1
             // 
             button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button1.Location = new Point(853, 298);
+            button1.Location = new Point(893, 298);
             button1.Name = "button1";
-            button1.Size = new Size(175, 32);
+            button1.Size = new Size(135, 32);
             button1.TabIndex = 1;
-            button1.Text = "Следующий вопрос";
+            button1.Text = "Дальше";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 

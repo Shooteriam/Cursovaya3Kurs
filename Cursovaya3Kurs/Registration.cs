@@ -48,12 +48,6 @@ namespace Cursovaya3Kurs
             string confirmPassword = textBox3.Text;
             bool isAdmin = checkBox1.Checked;
 
-            //if (password != confirmPassword)
-            //{
-            //    MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

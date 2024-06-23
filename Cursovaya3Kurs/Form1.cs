@@ -51,7 +51,8 @@ namespace Cursovaya3Kurs
             userId = -1;
             role = string.Empty;
             validatedUsername = string.Empty;
-            string query = "SELECT ID, Username, Role FROM Пользователи WHERE Username = @Username AND [Password] = @Password";
+
+            string query = "SELECT ID, Username, Role FROM Пользователи WHERE StrComp(Username, @Username, 0) = 0 AND [Password] = @Password";
             using (OleDbCommand cmd = new OleDbCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("@Username", username);
@@ -73,6 +74,8 @@ namespace Cursovaya3Kurs
             }
             return false;
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {

@@ -11,10 +11,11 @@ namespace Cursovaya3Kurs
         private int _currentQuestionIndex = 0;
         private List<RadioButton> _radioButtons;
         private int _correctAnswersCount = 0;
-        int n = 0;
+        private int n = 0;
         private int userId;
         private string username;
         private UserStatistics _userStatistics;
+        private List<int> _userAnswers; // сохраняет выбранные пользователем ответы
 
         private TimeSpan _timeRemaining = TimeSpan.FromMinutes(5); // 5 minutes countdown
         private DateTime _startTime;
@@ -27,6 +28,7 @@ namespace Cursovaya3Kurs
             this.username = username;
             _questions = questions;
             _radioButtons = new List<RadioButton> { radioButton1, radioButton2, radioButton3, radioButton4 };
+            _userAnswers = new List<int>(new int[_questions.Count]); // инициализация списка ответов пользователя
             _userStatistics = UserStatistics.Load($"../../../Статистика/user_{userId}.txt") ?? new UserStatistics(userId);
 
             UpdateTimerLabel();
@@ -51,6 +53,15 @@ namespace Cursovaya3Kurs
                 }
 
                 label4.Text = $"Вопрос: {_currentQuestionIndex + 1} из {_questions.Count}";
+
+                if (_currentQuestionIndex == _questions.Count - 1)
+                {
+                    button1.Text = "Завершить";
+                }
+                else
+                {
+                    button1.Text = "Далее";
+                }
             }
             else
             {
@@ -77,15 +88,15 @@ namespace Cursovaya3Kurs
                 MessageBox.Show("Время вышло!");
             }
 
-            MessageBox.Show($"Вы прошли все вопросы! Количество правильных ответов: {_correctAnswersCount} из {_questions.Count}.\nВремя прохождения: {testDuration.Minutes} минут {testDuration.Seconds} секунд.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            n++;
+            var resultForm = new TestResultForm(_correctAnswersCount, _questions.Count, testDuration, _questions, _userAnswers, userId, username);
+            resultForm.Show();
             this.Close();
-            ReturnToSelectTopic();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
+            n++;
             int selectedOptionIndex = -1;
             for (int i = 0; i < _radioButtons.Count; i++)
             {
@@ -101,6 +112,8 @@ namespace Cursovaya3Kurs
                 MessageBox.Show("Пожалуйста, выберите вариант ответа.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            _userAnswers[_currentQuestionIndex] = selectedOptionIndex;
 
             var correctAnswerIndex = _questions[_currentQuestionIndex].CorrectAnswerIndex;
 

@@ -1,6 +1,6 @@
 ﻿namespace Cursovaya3Kurs
 {
-    partial class AdminMenu
+    partial class TestResultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,86 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenu));
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(524, 36);
+            label1.Location = new Point(12, 129);
             label1.Name = "label1";
-            label1.Size = new Size(28, 15);
-            label1.TabIndex = 1;
-            label1.Text = "id: -";
+            label1.Size = new Size(57, 26);
+            label1.TabIndex = 0;
+            label1.Text = "label1";
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button1.Location = new Point(157, 160);
+            button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
+            button1.Location = new Point(274, 278);
             button1.Name = "button1";
-            button1.Size = new Size(251, 34);
+            button1.Size = new Size(180, 32);
             button1.TabIndex = 2;
-            button1.Text = "Редактировать теорию";
+            button1.Text = "В меню";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button2.Location = new Point(157, 200);
+            button2.Location = new Point(88, 278);
             button2.Name = "button2";
-            button2.Size = new Size(251, 34);
+            button2.Size = new Size(180, 32);
             button2.TabIndex = 3;
-            button2.Text = "Редактировать тесты";
+            button2.Text = "Смотреть ошибки";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button3.Location = new Point(157, 240);
-            button3.Name = "button3";
-            button3.Size = new Size(251, 34);
-            button3.TabIndex = 4;
-            button3.Text = "Просмотреть статистику";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.BackgroundImage = Properties.Resources.free_icon_log_out_4662171;
-            button4.BackgroundImageLayout = ImageLayout.Zoom;
-            button4.Location = new Point(12, 338);
-            button4.Name = "button4";
-            button4.Size = new Size(30, 30);
-            button4.TabIndex = 5;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
-            // AdminMenu
+            // TestResultForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(564, 382);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            ClientSize = new Size(543, 322);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            Name = "AdminMenu";
+            Name = "TestResultForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Меню администратора";
-            FormClosing += AdminMenu_FormClosing;
-            Load += AdminMenu_Load;
+            Text = "Результаты";
+            FormClosed += TestResultForm_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,7 +88,5 @@
         private Label label1;
         private Button button1;
         private Button button2;
-        private Button button3;
-        private Button button4;
     }
 }

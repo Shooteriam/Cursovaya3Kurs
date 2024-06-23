@@ -34,6 +34,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -50,7 +51,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button1.Location = new Point(213, 132);
+            button1.Location = new Point(213, 161);
             button1.Name = "button1";
             button1.Size = new Size(187, 34);
             button1.TabIndex = 1;
@@ -61,7 +62,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button2.Location = new Point(213, 172);
+            button2.Location = new Point(213, 201);
             button2.Name = "button2";
             button2.Size = new Size(187, 34);
             button2.TabIndex = 2;
@@ -72,11 +73,11 @@
             // button3
             // 
             button3.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button3.Location = new Point(213, 212);
+            button3.Location = new Point(213, 241);
             button3.Name = "button3";
             button3.Size = new Size(187, 34);
             button3.TabIndex = 3;
-            button3.Text = "Статистика";
+            button3.Text = "Моя статистика";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -91,11 +92,24 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe Print", 16F, FontStyle.Bold | FontStyle.Italic);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(187, 106);
+            label2.Name = "label2";
+            label2.Size = new Size(238, 38);
+            label2.TabIndex = 5;
+            label2.Text = "Добро пожаловать";
+            // 
             // UserMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(612, 348);
+            Controls.Add(label2);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -119,5 +133,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Label label2;
     }
 }
