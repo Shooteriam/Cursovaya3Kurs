@@ -20,6 +20,7 @@ namespace Cursovaya3Kurs
         public ReviewTestForm(List<Question> questions, List<int> userAnswers, int userId, string username)
         {
             InitializeComponent();
+            label1.AutoEllipsis = true;
             this.userId = userId;
             this.username = username;
             _questions = questions;
@@ -36,6 +37,10 @@ namespace Cursovaya3Kurs
             {
                 var question = _questions[_currentQuestionIndex];
                 label1.Text = question.Text;
+
+                label1.MaximumSize = new Size(this.Width - 40, 0); // Устанавливаем максимальную ширину с учетом отступов
+                label1.AutoSize = true; // Включаем автоматическое изменение размера по высоте
+
                 for (int i = 0; i < _radioButtons.Count; i++)
                 {
                     _radioButtons[i].Text = question.Options[i];
@@ -95,6 +100,11 @@ namespace Cursovaya3Kurs
             UserMenu userMenu = new UserMenu(userId, username);
             userMenu.Show();
             this.Close();
+        }
+
+        private void ReviewTestForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -57,7 +57,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button1.Location = new Point(893, 298);
+            button1.Location = new Point(542, 404);
             button1.Name = "button1";
             button1.Size = new Size(135, 32);
             button1.TabIndex = 1;
@@ -71,7 +71,7 @@
             radioButton1.BackColor = Color.Transparent;
             radioButton1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton1.ForeColor = Color.White;
-            radioButton1.Location = new Point(12, 173);
+            radioButton1.Location = new Point(12, 199);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(132, 30);
             radioButton1.TabIndex = 2;
@@ -85,7 +85,7 @@
             radioButton2.BackColor = Color.Transparent;
             radioButton2.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton2.ForeColor = Color.White;
-            radioButton2.Location = new Point(12, 203);
+            radioButton2.Location = new Point(12, 229);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(132, 30);
             radioButton2.TabIndex = 3;
@@ -99,7 +99,7 @@
             radioButton3.BackColor = Color.Transparent;
             radioButton3.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton3.ForeColor = Color.White;
-            radioButton3.Location = new Point(12, 233);
+            radioButton3.Location = new Point(12, 259);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(132, 30);
             radioButton3.TabIndex = 4;
@@ -113,7 +113,7 @@
             radioButton4.BackColor = Color.Transparent;
             radioButton4.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton4.ForeColor = Color.White;
-            radioButton4.Location = new Point(12, 263);
+            radioButton4.Location = new Point(12, 289);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(132, 30);
             radioButton4.TabIndex = 5;
@@ -165,7 +165,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1040, 336);
+            ClientSize = new Size(689, 448);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);

@@ -24,6 +24,8 @@ namespace Cursovaya3Kurs
         public StartTest(List<Question> questions, int userId, string username)
         {
             InitializeComponent();
+            label1.AutoEllipsis = true;
+
             this.userId = userId;
             this.username = username;
             _questions = questions;
@@ -46,6 +48,11 @@ namespace Cursovaya3Kurs
             {
                 var question = _questions[_currentQuestionIndex];
                 label1.Text = question.Text;
+
+                // Установите размер метки для автоматического переноса текста
+                label1.MaximumSize = new Size(this.Width - 40, 0); // Устанавливаем максимальную ширину с учетом отступов
+                label1.AutoSize = true; // Включаем автоматическое изменение размера по высоте
+
                 for (int i = 0; i < _radioButtons.Count; i++)
                 {
                     _radioButtons[i].Text = question.Options[i];
@@ -68,6 +75,7 @@ namespace Cursovaya3Kurs
                 EndTest();
             }
         }
+
 
         private void EndTest()
         {

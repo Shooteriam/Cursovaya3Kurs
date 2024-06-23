@@ -42,7 +42,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button1.Location = new Point(893, 292);
+            button1.Location = new Point(542, 404);
             button1.Name = "button1";
             button1.Size = new Size(135, 32);
             button1.TabIndex = 2;
@@ -53,7 +53,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button2.Location = new Point(12, 292);
+            button2.Location = new Point(12, 404);
             button2.Name = "button2";
             button2.Size = new Size(135, 32);
             button2.TabIndex = 3;
@@ -79,7 +79,7 @@
             radioButton4.BackColor = Color.Transparent;
             radioButton4.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton4.ForeColor = Color.White;
-            radioButton4.Location = new Point(15, 245);
+            radioButton4.Location = new Point(12, 286);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(132, 30);
             radioButton4.TabIndex = 13;
@@ -93,7 +93,7 @@
             radioButton3.BackColor = Color.Transparent;
             radioButton3.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton3.ForeColor = Color.White;
-            radioButton3.Location = new Point(15, 215);
+            radioButton3.Location = new Point(12, 256);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(132, 30);
             radioButton3.TabIndex = 12;
@@ -107,7 +107,7 @@
             radioButton2.BackColor = Color.Transparent;
             radioButton2.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton2.ForeColor = Color.White;
-            radioButton2.Location = new Point(15, 185);
+            radioButton2.Location = new Point(12, 226);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(132, 30);
             radioButton2.TabIndex = 11;
@@ -121,7 +121,7 @@
             radioButton1.BackColor = Color.Transparent;
             radioButton1.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
             radioButton1.ForeColor = Color.White;
-            radioButton1.Location = new Point(15, 155);
+            radioButton1.Location = new Point(12, 196);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(132, 30);
             radioButton1.TabIndex = 10;
@@ -144,7 +144,7 @@
             // button3
             // 
             button3.Font = new Font("Segoe Print", 11.25F, FontStyle.Bold);
-            button3.Location = new Point(453, 292);
+            button3.Location = new Point(277, 404);
             button3.Name = "button3";
             button3.Size = new Size(135, 32);
             button3.TabIndex = 15;
@@ -156,7 +156,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1040, 336);
+            ClientSize = new Size(689, 448);
             Controls.Add(button3);
             Controls.Add(label4);
             Controls.Add(radioButton4);
@@ -170,6 +170,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ваши ошибки";
             FormClosed += ReviewTestForm_FormClosed;
+            Load += ReviewTestForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
